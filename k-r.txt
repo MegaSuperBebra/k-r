@@ -1,0 +1,30 @@
+
+
+
+#include <vector>
+#include <stack>
+
+using namespase std;
+
+vector<vector<int>> matrix; 
+vector<bool> used; 
+int start; 
+
+void dfs()
+{
+    stack<int> stack;
+    stack.push(start);
+    while (!stack.empty())
+    {
+        int top = stack.top();
+        stack.pop();
+        for (int & i : matrix[top])
+        {
+            if (used[i])
+            {
+                stack.push(i);
+                used[i] = true;
+            }
+        }
+    }
+}
